@@ -6,7 +6,8 @@ let package = Package(
     name: "MillionaireDesignSystem",
     
     platforms: [
-        .iOS(.v16)
+        .iOS(.v16),
+        .macOS(.v10_15),
     ],
     
     products: [
