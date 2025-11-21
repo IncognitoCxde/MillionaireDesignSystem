@@ -2,6 +2,8 @@
 
 import SwiftUI
 
+// Shape
+
 struct SharpButtonShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -21,3 +23,32 @@ struct SharpButtonShape: Shape {
         return path
     }
 }
+
+// Button
+
+public struct SharpButton: View {
+    public var title: String
+    public var gradient: LinearGradient
+    public var action: () -> Void
+
+    public var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: 28, weight: .semibold))
+                .foregroundColor(.white)
+                .padding(.vertical, 22)
+                .frame(maxWidth: .infinity)
+                .background(
+                    SharpButtonShape()
+                        .fill(gradient)
+                )
+                .overlay(
+                    SharpButtonShape()
+                        .stroke(Color.white, lineWidth: 3)
+                )
+        }
+        .buttonStyle(.plain)
+        .padding(.horizontal, 20)
+    }
+}
+
