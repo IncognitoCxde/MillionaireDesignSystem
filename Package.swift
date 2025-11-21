@@ -16,15 +16,11 @@ let package = Package(
         ),
     ],
     
-    dependencies: [
-        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.7.1")
-    ],
-    
     targets: [
         .target(
             name: "DesignSystem",
             dependencies: [
-                "SnapKit"
+                
             ],
             path: "Sources/DesignSystem",
             resources: [
