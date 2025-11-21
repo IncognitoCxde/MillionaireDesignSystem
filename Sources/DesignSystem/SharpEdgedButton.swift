@@ -4,9 +4,9 @@ import SwiftUI
 
 // Shape
 
-struct SharpButtonShape: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+public struct SharpButtonShape: Shape {
+    public func path(in rect: CGRect) -> Path {
+    var path = Path()
 
         let inset: CGFloat = rect.height * 0.3
         let h = rect.height
@@ -26,12 +26,12 @@ struct SharpButtonShape: Shape {
 
 // Button
 
-struct SharpButton: View {
-    var title: String
-    var gradient: LinearGradient
-    var action: () -> Void
+public struct SharpButton: View {
+    public var title: String
+    public var gradient: LinearGradient
+    public var action: () -> Void
 
-    var body: some View {
+    public var body: some View {
         Button(action: action) {
             Text(title)
                 .font(.system(size: 28, weight: .semibold))
