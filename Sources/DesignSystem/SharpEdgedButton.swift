@@ -26,12 +26,12 @@ struct SharpButtonShape: Shape {
 
 // Button
 
-public struct SharpButton: View {
-    public var title: String
-    public var gradient: LinearGradient
-    public var action: () -> Void
+struct SharpButton: View {
+    var title: String
+    var gradient: LinearGradient
+    var action: () -> Void
 
-    public var body: some View {
+    var body: some View {
         Button(action: action) {
             Text(title)
                 .font(.system(size: 28, weight: .semibold))
