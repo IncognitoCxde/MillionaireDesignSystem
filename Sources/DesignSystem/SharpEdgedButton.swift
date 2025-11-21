@@ -10,106 +10,58 @@ public struct SlantedButtonShape: Shape {
         let h = rect.height
         let w = rect.width
         
-        let slant = h * 0.30
-        let corner = h * 0.22
+        let inset = h * 0.4
+        let r: CGFloat = h * 0.1
         
-        path.move(to: CGPoint(x: slant, y: 0))
+        let A = CGPoint(x: inset , y: 0)
+        let B = CGPoint(x: w - inset, y: 0)
+        let C = CGPoint(x: w, y: h / 2)
+        let D = CGPoint(x: w - inset, y: h)
+        let E = CGPoint(x: inset, y: h)
+        let F = CGPoint(x: 0,y: h / 2)
         
-        path.addLine(to: CGPoint(x: w - slant, y: 0))
+        func addRoundedCorner(_ p0: CGPoint, _ p1: CGPoint, _ p2: CGPoint, to path: inout Path) {
+            let v1 = CGPoint(x: p0.x - p1.x, y: p0.y - p1.y)
+            let v2 = CGPoint(x: p2.x - p1.x, y: p2.y - p1.y)
+            
+            let len1 = hypot(v1.x, v1.y)
+            let len2 = hypot(v2.x, v2.y)
+            
+            let u1 = CGPoint(x: v1.x / len1, y: v1.y / len1)
+            let u2 = CGPoint(x: v2.x / len2, y: v2.y / len2)
+            
+            let pA = CGPoint(x: p1.x + u1.x * r, y: p1.y + u1.y * r)
+            let pB = CGPoint(x: p1.x + u2.x * r, y: p1.y + u2.y * r)
+            
+            path.addLine(to: pA)
+            path.addQuadCurve(to: pB, control: p1)
+        }
+        path.move(to: CGPoint(x: A.x + r, y: A.y))
         
-        path.addQuadCurve(
-            to: CGPoint(x: w, y: h / 2),
-            control: CGPoint(x: w, y: corner)
-        )
+        addRoundedCorner(A, B, C, to: &path)
+        addRoundedCorner(B, C, D, to: &path)
+        addRoundedCorner(C, D, E, to: &path)
+        addRoundedCorner(D, E, F, to: &path)
+        addRoundedCorner(E, F, A, to: &path)
+        addRoundedCorner(F, A, B, to: &path)
         
-        path.addQuadCurve(
-            to: CGPoint(x: w - slant, y: h),
-            control: CGPoint(x: w, y: h - corner)
-        )
-        
-        path.addLine(to: CGPoint(x: slant, y: h))
-        
-        path.addQuadCurve(
-            to: CGPoint(x: 0, y: h / 2),
-            control: CGPoint(x: 0, y: h - corner)
-        )
-        
-        path.addQuadCurve(
-            to: CGPoint(x: slant, y: 0),
-            control: CGPoint(x: 0, y: corner)
-        )
-        
+        path.closeSubpath()
         return path
-//    var path = Path()
-//
-//        let inset: CGFloat = rect.height * 0.3
-//        let h = rect.height
-//        let w = rect.width
-//
-//        path.move(to: CGPoint(x: inset, y: 0))
-//        path.addLine(to: CGPoint(x: w - inset, y: 0))
-//        path.addLine(to: CGPoint(x: w, y: h / 2))
-//        path.addLine(to: CGPoint(x: w - inset, y: h))
-//        path.addLine(to: CGPoint(x: inset, y: h))
-//        path.addLine(to: CGPoint(x: 0, y: h / 2))
-//        path.closeSubpath()
-//
-//        return path
         
-//        var path = Path()
-//
-//               let inset = rect.height * 0.32
-//               let h = rect.height
-//               let w = rect.width
-//
-//               path.move(to: CGPoint(x: inset, y: 0))
-//
-//               path.addQuadCurve(
-//                   to: CGPoint(x: w - inset, y: 0),
-//                   control: CGPoint(x: w / 2, y: -h * 0.18)
-//               )
-//
-//               path.addQuadCurve(
-//                   to: CGPoint(x: w, y: h / 2),
-//                   control: CGPoint(x: w, y: h * 0.15)
-//               )
-//
-//               path.addQuadCurve(
-//                   to: CGPoint(x: w - inset, y: h),
-//                   control: CGPoint(x: w, y: h * 0.85)
-//               )
-//
-//               path.addQuadCurve(
-//                   to: CGPoint(x: inset, y: h),
-//                   control: CGPoint(x: w / 2, y: h + h * 0.18)
-//               )
-//
-//               path.addQuadCurve(
-//                   to: CGPoint(x: 0, y: h / 2),
-//                   control: CGPoint(x: 0, y: h * 0.85)
-//               )
-//
-//               path.addQuadCurve(
-//                   to: CGPoint(x: inset, y: 0),
-//                   control: CGPoint(x: 0, y: h * 0.15)
-//               )
-//
-//               return path
     }
 }
-
 
 public struct SlantedButton: View {
     public var title: String
     public var gradient: LinearGradient
     public var action: () -> Void
-
+    
     public init(title: String, gradient: LinearGradient, action: @escaping () -> Void) {
         self.title = title
         self.gradient = gradient
         self.action = action
     }
-
+    
     public var body: some View {
         Button(action: action) {
             Text(title)
@@ -130,5 +82,6 @@ public struct SlantedButton: View {
         .padding(.horizontal, 20)
     }
 }
+
 
 
