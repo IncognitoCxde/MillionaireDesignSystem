@@ -6,41 +6,40 @@ public struct SlantedButtonShape: Shape {
     public func path(in rect: CGRect) -> Path {
         
         var path = Path()
-
-                let inset = rect.height * 0.22
-                let curve = rect.height * 0.08
-
-                let h = rect.height
-                let w = rect.width
-
-                path.move(to: CGPoint(x: inset, y: curve))
-                path.addQuadCurve(
-                    to: CGPoint(x: w - inset, y: curve),
-                    control: CGPoint(x: w / 2, y: -curve)
-                )
-                path.addLine(to: CGPoint(x: w, y: h / 2))
-
-                path.addQuadCurve(
-                    to: CGPoint(x: w - inset, y: h - curve),
-                    control: CGPoint(x: w, y: h / 2)
-                )
-
-                path.addQuadCurve(
-                    to: CGPoint(x: inset, y: h - curve),
-                    control: CGPoint(x: w / 2, y: h + curve)
-                )
-
-                path.addQuadCurve(
-                    to: CGPoint(x: 0, y: h / 2),
-                    control: CGPoint(x: 0, y: h / 2)
-                )
-
-                path.addQuadCurve(
-                    to: CGPoint(x: inset, y: curve),
-                    control: CGPoint(x: 0, y: h / 2)
-                )
-
-                return path
+        
+        let h = rect.height
+        let w = rect.width
+        
+        let slant = h * 0.30
+        let corner = h * 0.22
+        
+        path.move(to: CGPoint(x: slant, y: 0))
+        
+        path.addLine(to: CGPoint(x: w - slant, y: 0))
+        
+        path.addQuadCurve(
+            to: CGPoint(x: w, y: h / 2),
+            control: CGPoint(x: w, y: corner)
+        )
+        
+        path.addQuadCurve(
+            to: CGPoint(x: w - slant, y: h),
+            control: CGPoint(x: w, y: h - corner)
+        )
+        
+        path.addLine(to: CGPoint(x: slant, y: h))
+        
+        path.addQuadCurve(
+            to: CGPoint(x: 0, y: h / 2),
+            control: CGPoint(x: 0, y: h - corner)
+        )
+        
+        path.addQuadCurve(
+            to: CGPoint(x: slant, y: 0),
+            control: CGPoint(x: 0, y: corner)
+        )
+        
+        return path
 //    var path = Path()
 //
 //        let inset: CGFloat = rect.height * 0.3
