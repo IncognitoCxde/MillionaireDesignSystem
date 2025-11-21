@@ -2,9 +2,7 @@
 
 import SwiftUI
 
-// Shape
-
-public struct SharpButtonShape: Shape {
+public struct SlantedButtonShape: Shape {
     public func path(in rect: CGRect) -> Path {
     var path = Path()
 
@@ -24,12 +22,16 @@ public struct SharpButtonShape: Shape {
     }
 }
 
-// Button
-
-public struct SharpButton: View {
+public struct SlantedButton: View {
     public var title: String
     public var gradient: LinearGradient
     public var action: () -> Void
+
+    public init(title: String, gradient: LinearGradient, action: @escaping () -> Void) {
+        self.title = title
+        self.gradient = gradient
+        self.action = action
+    }
 
     public var body: some View {
         Button(action: action) {
@@ -39,11 +41,11 @@ public struct SharpButton: View {
                 .padding(.vertical, 22)
                 .frame(maxWidth: .infinity)
                 .background(
-                    SharpButtonShape()
+                    SlantedButtonShape()
                         .fill(gradient)
                 )
                 .overlay(
-                    SharpButtonShape()
+                    SlantedButtonShape()
                         .stroke(Color.white, lineWidth: 3)
                 )
         }
@@ -51,4 +53,5 @@ public struct SharpButton: View {
         .padding(.horizontal, 20)
     }
 }
+
 
