@@ -65,7 +65,7 @@ public struct SlantedButton: View {
     public var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.system(size: 28, weight: .semibold))
+                .font(.system(size: 25, weight: .semibold))
                 .foregroundColor(.white)
                 .padding(.vertical, 22)
                 .frame(maxWidth: .infinity)
@@ -82,6 +82,4 @@ public struct SlantedButton: View {
         .padding(.horizontal, 20)
     }
 }
-
-
 
