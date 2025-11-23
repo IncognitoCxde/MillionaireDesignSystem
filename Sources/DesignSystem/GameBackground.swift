@@ -20,7 +20,7 @@ struct GameBackgroundView: View {
                     .fill(
                         RadialGradient(
                             gradient: Gradient(colors: [
-                                .lighterBlue.opacity(0.80),
+                                .lighterBlue.opacity(0.40),
                                 .clear
                             ]),
                             center: .center,
@@ -36,7 +36,7 @@ struct GameBackgroundView: View {
                     .fill(
                         RadialGradient(
                             gradient: Gradient(colors: [
-                                .lighterBlue.opacity(0.60),
+                                .lighterBlue.opacity(0.40),
                                 .clear
                             ]),
                             center: .center,
