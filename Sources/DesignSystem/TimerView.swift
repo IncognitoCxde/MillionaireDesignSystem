@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct TimerView: View {
+public struct TimerView: View {
     
     @Binding var remainingTime: Int
-    var onTimeUp: (() -> Void)?
+    public var onTimeUp: (() -> Void)?
     
-    var body: some View {
+    public var body: some View {
         HStack {
             Image.timer
             Text("\(remainingTime)")
@@ -23,7 +23,7 @@ struct TimerView: View {
         }
     }
     
-    private var timerBackgroundColor: Color {
+   public var timerBackgroundColor: Color {
         if remainingTime <= 10 {
             return .answerDarkRed.opacity(0.7)
         } else if remainingTime <= 20 {

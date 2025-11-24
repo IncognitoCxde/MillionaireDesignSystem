@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct QuestionHeaderView: View {
-    var questionNumber: Int
-    var prizeValue: String
+public struct QuestionHeaderView: View {
+    public var questionNumber: Int
+    public var prizeValue: String
     
-    var body: some View {
+    public var body: some View {
             VStack {
                 Text("QUESTION #\(questionNumber)")
                     .font(.title3)

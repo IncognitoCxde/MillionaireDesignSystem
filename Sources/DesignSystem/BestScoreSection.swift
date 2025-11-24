@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct BestScoreSection: View {
-    let bestScore: Int
+public struct BestScoreSection: View {
+    public let bestScore: Int
     
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 8) {
             Text("All-time Best Score")
                 .font(.system(size: 18))

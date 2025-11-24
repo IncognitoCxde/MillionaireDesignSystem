@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct MainLogoView: View {
-    var body: some View {
+public struct MainLogoView: View {
+    public var body: some View {
         VStack(spacing: -10) {
             Image.appLogo
                 .resizable()
