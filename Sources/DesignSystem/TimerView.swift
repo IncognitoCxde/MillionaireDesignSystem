@@ -2,6 +2,8 @@ import SwiftUI
 
 public struct TimerView: View {
     
+    public init() {}
+    
     @Binding var remainingTime: Int
     public var onTimeUp: (() -> Void)?
     

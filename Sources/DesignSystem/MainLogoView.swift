@@ -1,6 +1,9 @@
 import SwiftUI
 
 public struct MainLogoView: View {
+    
+    public init() {}
+    
     public var body: some View {
         VStack(spacing: -10) {
             Image.appLogo

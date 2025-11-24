@@ -1,6 +1,9 @@
 import SwiftUI
 
 public struct BestScoreSection: View {
+    
+    public init() {}
+    
     public let bestScore: Int
     
     public var body: some View {

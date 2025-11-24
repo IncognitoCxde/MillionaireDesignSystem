@@ -1,6 +1,9 @@
 import SwiftUI
 
 public struct GameBackgroundView: View {
+    
+    public init() {}
+    
     public var body: some View {
         ZStack {
             RadialGradient(

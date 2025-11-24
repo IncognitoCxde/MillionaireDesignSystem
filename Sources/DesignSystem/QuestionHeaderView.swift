@@ -1,6 +1,9 @@
 import SwiftUI
 
 public struct QuestionHeaderView: View {
+    
+    public init() {}
+    
     public var questionNumber: Int
     public var prizeValue: String
     
