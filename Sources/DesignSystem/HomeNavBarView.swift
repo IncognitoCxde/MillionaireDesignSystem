@@ -9,20 +9,17 @@ public struct HomeNavBarView: View {
     }
     
     public var body: some View {
-        NavigationStack {
-            VStack {
-                
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        helpButtonAction?()
-                    }) {
-                        Image.help
-                            .padding(.trailing, 20)
-                    }
+        VStack {
+            HStack {
+                Spacer()
+                Button(action: {
+                    helpButtonAction?()
+                }) {
+                    Image.help
+                        .padding(.trailing, 20)
                 }
             }
+            .padding(.top, 20)
         }
     }
 }
