@@ -2,10 +2,13 @@ import SwiftUI
 
 public struct TimerView: View {
     
-    public init() {}
-    
     @Binding var remainingTime: Int
     public var onTimeUp: (() -> Void)?
+    
+    public init(remainingTime: Binding<Int>, onTimeUp: (() -> Void)? = nil) {
+        self._remainingTime = remainingTime
+        self.onTimeUp = onTimeUp
+    }
     
     public var body: some View {
         HStack {
@@ -16,7 +19,7 @@ public struct TimerView: View {
         .foregroundColor(.white)
         .frame(width: 90, height: 50)
         .background(Capsule().fill(timerBackgroundColor)
-                    )
+        )
         .padding()
         .onChange(of: remainingTime) { newValue in
             if newValue == 0 {
@@ -25,7 +28,7 @@ public struct TimerView: View {
         }
     }
     
-   public var timerBackgroundColor: Color {
+    public var timerBackgroundColor: Color {
         if remainingTime <= 10 {
             return .answerDarkRed.opacity(0.7)
         } else if remainingTime <= 20 {
@@ -40,7 +43,7 @@ public struct TimerView: View {
 
 //struct ContentView: View {
 //    @State private var timeRemaining = 30
-//    
+//
 //    var body: some View {
 //        ZStack {
 //            GameBackgroundView()
