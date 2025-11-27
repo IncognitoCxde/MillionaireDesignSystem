@@ -18,7 +18,7 @@ public struct LifelineButton: View {
     public var body: some View {
         Button(action: action) {
             content
-                .font(.system(size: 28, weight: .bold))
+                .font(.system(size: 22, weight: .bold))
                 .foregroundColor(.white)
                 .frame(width: 100, height: 80)
                 .background(
