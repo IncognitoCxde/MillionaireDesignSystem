@@ -20,14 +20,14 @@ public struct LifelineButton: View {
             content
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(.white)
-                .frame(width: 130, height: 100)
+                .frame(width: 120, height: 100)
                 .background(
                     Ellipse()
                         .fill(gradient)
                 )
                 .overlay(
                     Ellipse()
-                        .stroke(Color.white, lineWidth: 6)
+                        .stroke(Color.white, lineWidth: 5)
                 )
         }
         .buttonStyle(.plain)
