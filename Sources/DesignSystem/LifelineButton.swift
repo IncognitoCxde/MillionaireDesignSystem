@@ -20,7 +20,7 @@ public struct LifelineButton: View {
             content
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(.white)
-                .frame(width: 120, height: 100)
+                .frame(width: 100, height: 80)
                 .background(
                     Ellipse()
                         .fill(gradient)
