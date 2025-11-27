@@ -16,7 +16,7 @@ public struct QuestionHeaderView: View {
                 .font(.title3)
                 .foregroundColor(.white.opacity(0.6))
             
-            Text("$\(prizeValue)")
+            Text("\(prizeValue)")
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
