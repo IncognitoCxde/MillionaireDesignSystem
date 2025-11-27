@@ -34,7 +34,7 @@ public struct LifelineButton: View {
     }
 }
 
-extension LinearGradient {
+public extension LinearGradient {
     static let lifelineBlue = LinearGradient(
         colors: [
             Color(red: 0.08, green: 0.28, blue: 0.52),
