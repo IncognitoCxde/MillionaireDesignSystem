@@ -19,9 +19,7 @@ public struct QuestionHeaderView: View {
             Text("\(prizeValue)")
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(.white)
-            Spacer()
-            
+                .foregroundColor(.white)            
         }
         .padding()
     }
