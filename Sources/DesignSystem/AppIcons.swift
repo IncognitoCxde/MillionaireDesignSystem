@@ -38,5 +38,8 @@ public extension Image {
     static var timer: Image {
         Image("Timer", bundle: .designSystem)
     }
+    static var community: Image {
+        Image("Community", bundle: .designSystem)
+    }
 }
 
