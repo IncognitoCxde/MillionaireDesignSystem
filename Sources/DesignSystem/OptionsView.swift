@@ -24,7 +24,6 @@ public struct AnswerOptionRow: View {
                     .foregroundColor(.darkGold)
                     .padding(.leading, 30)
                 
-                Spacer()
                 
                 Text(optionText)
                     .font(.system(size: 22, weight: .semibold))
