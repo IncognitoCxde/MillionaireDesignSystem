@@ -41,5 +41,8 @@ public extension Image {
     static var community: Image {
         Image("Community", bundle: .designSystem)
     }
+    static var arrowBack: Image {
+        Image("arrowBack", bundle: .designSystem)
+    }
 }
 
