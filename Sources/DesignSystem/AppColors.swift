@@ -3,6 +3,11 @@
 import SwiftUI
 
 public extension Color {
+    
+    static var dark: Color {
+        Color("Dark", bundle: .designSystem)
+    }
+
     // Blues
     static var cyanGlow: Color {
         Color("CyanGlow", bundle: .designSystem)
