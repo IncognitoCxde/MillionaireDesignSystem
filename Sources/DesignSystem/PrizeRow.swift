@@ -33,7 +33,6 @@ public struct PrizeRow: View {
             SlantedButtonShape()
                 .stroke(.white, lineWidth: 3)
         )
-        .padding(.horizontal, 20)
     }
 }
 
@@ -58,3 +57,4 @@ public extension LinearGradient {
         endPoint: .top
     )
 }
+
