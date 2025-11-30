@@ -4,18 +4,15 @@ public struct LifelineButton: View {
     public var gradient: LinearGradient
     public var content: AnyView
     public var action: () -> Void
-    public var isDisabled: Bool = false
     
     public init(
         gradient: LinearGradient,
         @ViewBuilder content: () -> some View,
-        action: @escaping () -> Void,
-        isDisabled: Bool = false
+        action: @escaping () -> Void
     ) {
         self.gradient = gradient
         self.content = AnyView(content())
         self.action = action
-        self.isDisabled = isDisabled
     }
     
     public var body: some View {
@@ -26,7 +23,7 @@ public struct LifelineButton: View {
                 .frame(width: 100, height: 80)
                 .background(
                     Ellipse()
-                        .fill(isDisabled ? LinearGradient.disabledGradient  : LinearGradient.lifelineBlue)
+                        .fill(gradient)
                 )
                 .overlay(
                     Ellipse()
@@ -46,13 +43,4 @@ public extension LinearGradient {
         startPoint: .top,
         endPoint: .bottom
     )
-    
-    static let disabledGradient = LinearGradient(
-        colors: [
-            .gray,
-            .gray
-        ],
-        startPoint: .top,
-        endPoint: .bottom
-        )
 }
