@@ -4,13 +4,11 @@ public struct PrizeRow: View {
     let leftText: String
     let rightText: String
     let gradient: LinearGradient
-    @Binding var shineEffect: CGFloat
 
-    public init(leftText: String, rightText: String, gradient: LinearGradient, shineEffect: Binding<CGFloat>?) {
+    public init(leftText: String, rightText: String, gradient: LinearGradient) {
         self.leftText = leftText
         self.rightText = rightText
         self.gradient = gradient
-        _shineEffect = shineEffect ?? .constant(0)
     }
 
     public var body: some View {
@@ -36,15 +34,6 @@ public struct PrizeRow: View {
                 .stroke(.white, lineWidth: 3)
         )
         .padding(.horizontal, 20)
-        .overlay(
-            LinearGradient(
-                colors: [Color.white.opacity(0.5), Color.clear, Color.white.opacity(0.5)],
-                startPoint: .topLeading,
-                endPoint: .topTrailing
-            )
-            .scaleEffect(x: 1 + shineEffect, y: 1, anchor: .leading)
-            .animation(.linear(duration: 1).repeatForever(autoreverses: true), value: shineEffect)
-        )
     }
 }
 
